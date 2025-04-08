@@ -13,7 +13,7 @@ import (
 type contextKey string
 
 var (
-	issuerIdKey = contextKey("ISSUER_ID")
+	issuerIdKey = contextKey("CMG_MIDDLEWARE_ISSUER_ID")
 
 	headerTrueClientIp = "True-Client-IP"
 	headerForwardedFor = "X-Forwarded-For"
