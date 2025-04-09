@@ -12,7 +12,7 @@ The `issuerid` package provides a middleware for HTTP servers in Go that generat
 To use this library in your Go project, you can import it using the following command:
 
 ```bash
-go get github.com/junkofuruto/issuer-id
+go get github.com/junkofuruto/issuerid
 ```
 
 ## Usage
