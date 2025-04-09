@@ -27,7 +27,7 @@ func IssuerId(next http.Handler) http.Handler {
 		ctx := r.Context()
 		if rip := realIP(r); rip != "" {
 			uuid := generateUUIDFromString(rip)
-			ctx = context.WithValue(ctx, issuerIdKey, contextKey(uuid.String()))
+			ctx = context.WithValue(ctx, issuerIdKey, uuid.String())
 		} else {
 			ctx = context.WithValue(ctx, issuerIdKey, zeroUUID)
 		}
@@ -41,14 +41,14 @@ func IssuerId(next http.Handler) http.Handler {
 
 func GetIssuerID(ctx context.Context) string {
 	if ctx == nil {
-		return zeroUUID
+		return ""
 	}
 
 	if reqID, ok := ctx.Value(issuerIdKey).(string); ok {
 		return reqID
 	}
 
-	return zeroUUID
+	return ""
 }
 
 func generateUUIDFromString(s string) uuid.UUID {
